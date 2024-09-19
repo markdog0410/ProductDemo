@@ -65,8 +65,7 @@ class NetworkManager {
         }
         
         do {
-            let categoryProducts = try decoder.decode([CategoryElement].self, from: data)
-            print(categoryProducts)
+            let categoryProducts = try decoder.decode([CategoryElement].self, from: data)            
             return categoryProducts
         } catch {
             print("invalid categories data")

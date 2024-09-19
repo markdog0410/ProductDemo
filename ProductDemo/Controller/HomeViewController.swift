@@ -9,7 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var products: [CategoryElement] = []
     var categories: [String] = []
+    
     
     private let categoriesCollections: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -49,7 +51,7 @@ class HomeViewController: UIViewController {
         
         fetchGetCategories()
         
-    }
+    }    
     
     func fetchGetCategories() {
         Task{
@@ -68,22 +70,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func fetchCategoryProducts(categoryType: String) {
-        Task{
-            do{
-                let categoryProducts = try await NetworkManager.share.getInCategory(category: categoryType)
-//                DispatchQueue.main.async {
-//                    self.categoriesCollections.reloadData()
-//                }
-            }catch{
-                if let gfError = error as? ErrorCase {
-                    presentErrorAlert(title: "注意！", message: gfError.rawValue)
-                }else {
-                    presentErrorAlert(title: "錯誤", message: "請聯繫客服人員")
-                }
-            }
-        }
-    }
+    
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
@@ -112,8 +99,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected => \(self.categories[indexPath.row])")
-//        self.fetchCategoryProducts(categoryType: self.categories[indexPath.row])
-        navigationController?.pushViewController(ProductsViewController(), animated: true)
+        self.navigationController?.pushViewController(ProductsViewController(category: self.categories[indexPath.row]), animated: true)
+//        self.fetchCategoryProducts(categoryType: self.categories[indexPath.row]){
+//            DispatchQueue.main.async {
+//                self.navigationController?.pushViewController(ProductsViewController(products: self.products), animated: true)
+//            }
+//        }
     }
 }
