@@ -36,17 +36,23 @@ class ProductsViewController: UIViewController {
 
         navigationItem.title = self.category
         
-        fetchCategoryProducts(categoryType: self.category)
+        fetchCategoryProducts(categoryType: category) { [weak self] in
+            DispatchQueue.main.async {
+                self?.productsTable.reloadData()
+            }
+        }
+        
         configureConstraints()
     }
     
-    func fetchCategoryProducts(categoryType: String) {
+    func fetchCategoryProducts(categoryType: String, completion: @escaping () -> Void) {
         LoadingIndicatorManager.shared.showLoading(on: view)
         Task{
             do{
                 let products = try await NetworkManager.share.getInCategory(category: categoryType)
+                self.productsTable.reloadData()
                 self.products = products
-//                completion()
+                completion()
                 LoadingIndicatorManager.shared.stopLoading()
             }catch{
                 if let gfError = error as? ErrorCase {
@@ -70,13 +76,15 @@ class ProductsViewController: UIViewController {
 
 extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductsCell.reuserId, for: indexPath) as? ProductsCell else {
             return ProductsCell()
         }
+        cell.configure(with: self.products[indexPath.row])
+        
         return cell
     }
     

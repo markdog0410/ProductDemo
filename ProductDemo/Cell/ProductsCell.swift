@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProductsCell: UITableViewCell {
     
@@ -32,13 +33,18 @@ class ProductsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(with product: CategoryElement) {
+        print(product)
+        productImg.sd_setImage(with: URL(string: product.image))
+    }
+    
     func configureConstraints() {
         NSLayoutConstraint.activate([
             productImg.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             productImg.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             productImg.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             productImg.widthAnchor.constraint(equalToConstant: 100),
-            productImg.heightAnchor.constraint(equalToConstant: 100)
+//            productImg.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
 }

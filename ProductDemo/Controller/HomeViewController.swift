@@ -93,7 +93,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCell.reuseId, for: indexPath) as? CategoriesCell else {
             return CategoriesCell()
         }
-
+        
         cell.configure(with: categories[indexPath.row])
         return cell
     }
