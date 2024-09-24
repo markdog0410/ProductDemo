@@ -24,6 +24,7 @@
 		5458C4C02C9ACD10007B7F27 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4BF2C9ACD10007B7F27 /* ProductsViewController.swift */; };
 		5458C4C22C9BCAFF007B7F27 /* LoadingIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4C12C9BCAFF007B7F27 /* LoadingIndicatorManager.swift */; };
 		5458C4C42C9C1528007B7F27 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4C32C9C1528007B7F27 /* ProductsCell.swift */; };
+		5458C4C82CA27385007B7F27 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4C72CA27385007B7F27 /* StarRateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		5458C4BF2C9ACD10007B7F27 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		5458C4C12C9BCAFF007B7F27 /* LoadingIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorManager.swift; sourceTree = "<group>"; };
 		5458C4C32C9C1528007B7F27 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
+		5458C4C72CA27385007B7F27 /* StarRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				5458C4B62C982E6D007B7F27 /* ErrorCase.swift */,
 				5458C4C12C9BCAFF007B7F27 /* LoadingIndicatorManager.swift */,
+				5458C4C72CA27385007B7F27 /* StarRateView.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				5458C4B42C982A26007B7F27 /* NetworkManager.swift in Sources */,
 				5458C4A82C980A6B007B7F27 /* MemberViewController.swift in Sources */,
 				5458C4B22C982926007B7F27 /* CategoryElement.swift in Sources */,
+				5458C4C82CA27385007B7F27 /* StarRateView.swift in Sources */,
 				5458C4BA2C9A86D9007B7F27 /* UIViewController+Ext.swift in Sources */,
 				5458C4AE2C981D1F007B7F27 /* CategoriesCell.swift in Sources */,
 				5458C4A62C9809CE007B7F27 /* HomeViewController.swift in Sources */,
