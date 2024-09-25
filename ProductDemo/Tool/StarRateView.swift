@@ -9,7 +9,11 @@ import UIKit
 
 class StarRateView: UIView {
     
-    var ratingScore: CGFloat?
+    var ratingScore: CGFloat? {
+        didSet {
+            setStarView()
+        }
+    }
     var starLimit: Int = 5
     
     private let stackView: UIStackView = {
@@ -65,12 +69,15 @@ class StarRateView: UIView {
         configureConstraits()
     }
     
+    func setRating(_ rating: CGFloat) {
+        self.ratingScore = rating
+    }
+    
     func configureConstraits() {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            stackView.widthAnchor.constraint(equalToConstant: 150),
             stackView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }

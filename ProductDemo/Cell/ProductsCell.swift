@@ -64,7 +64,6 @@ class ProductsCell: UITableViewCell {
         addSubview(name)
         addSubview(dollarSign)
         addSubview(price)
-//        addSubview(buyerRating)
         addSubview(starView)
         addSubview(ratingCounts)
         
@@ -80,6 +79,8 @@ class ProductsCell: UITableViewCell {
         name.text = product.title
         price.text = String(product.price)
         ratingCounts.text = String(product.rating.count)
+        
+        starView.setRating(CGFloat(product.rating.rate))
     }
     
     func configureConstraints() {
@@ -106,7 +107,6 @@ class ProductsCell: UITableViewCell {
             price.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
                     
             starView.leadingAnchor.constraint(equalTo: productImg.trailingAnchor, constant: 5),
-//            starView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             starView.bottomAnchor.constraint(equalTo: dollarSign.topAnchor, constant: -20),
             starView.widthAnchor.constraint(equalToConstant: 150),
             
