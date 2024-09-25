@@ -31,8 +31,8 @@ class CategoriesCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(categoryImg)
-        addSubview(categoryName)
+        contentView.addSubview(categoryImg)
+        contentView.addSubview(categoryName)
 
         
 

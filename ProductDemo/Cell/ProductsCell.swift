@@ -42,7 +42,7 @@ class ProductsCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 20)
         return label
-    }()    
+    }()
     
     private let starView: StarRateView = {
         let view = StarRateView()
@@ -56,19 +56,52 @@ class ProductsCell: UITableViewCell {
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
+    
+    private let cartAdd: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium)
+        let largerImage = UIImage(systemName: "cart.badge.plus", withConfiguration: config)?.withRenderingMode(.alwaysOriginal)
+        button.setImage(largerImage, for: .normal)
+                
+        button.bounds = CGRect(x: 0, y: 0, width: 60, height: 60)
+        
+        let action = UIAction { _ in
+            print("button tapped.")
+            UIView.animate(withDuration: 0.1, animations: {
+                button.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }) { _ in
+                UIView.animate(withDuration: 0.1, animations: {
+                    button.transform = CGAffineTransform.identity
+                })
+            }
+        }
 
+        button.addAction(action, for: .touchUpInside)
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(productImg)
-        addSubview(name)
-        addSubview(dollarSign)
-        addSubview(price)
-        addSubview(starView)
-        addSubview(ratingCounts)
+        contentView.addSubview(productImg)
+        contentView.addSubview(name)
+        contentView.addSubview(dollarSign)
+        contentView.addSubview(price)
+
+        contentView.addSubview(cartAdd)
+        contentView.addSubview(starView)
+        contentView.addSubview(ratingCounts)
         
         configureConstraints()
+
+//        cartAdd.addTarget(self, action: #selector(cartAddButton), for: .touchUpInside)
     }
+    
+//    @objc
+//    func cartAddButton() {
+//        print("cart button tapped")
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -104,8 +137,13 @@ class ProductsCell: UITableViewCell {
             
             price.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             price.leadingAnchor.constraint(equalTo: dollarSign.trailingAnchor, constant: 5),
-            price.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-                    
+            
+            cartAdd.leadingAnchor.constraint(equalTo: price.trailingAnchor, constant: 5),
+            cartAdd.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            cartAdd.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            cartAdd.heightAnchor.constraint(equalToConstant: 40),
+            cartAdd.widthAnchor.constraint(equalToConstant: 44),
+            
             starView.leadingAnchor.constraint(equalTo: productImg.trailingAnchor, constant: 5),
             starView.bottomAnchor.constraint(equalTo: dollarSign.topAnchor, constant: -20),
             starView.widthAnchor.constraint(equalToConstant: 150),

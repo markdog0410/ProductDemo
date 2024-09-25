@@ -25,6 +25,7 @@
 		5458C4C22C9BCAFF007B7F27 /* LoadingIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4C12C9BCAFF007B7F27 /* LoadingIndicatorManager.swift */; };
 		5458C4C42C9C1528007B7F27 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4C32C9C1528007B7F27 /* ProductsCell.swift */; };
 		5458C4C82CA27385007B7F27 /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4C72CA27385007B7F27 /* StarRateView.swift */; };
+		5458C4CB2CA3E039007B7F27 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5458C4CA2CA3E039007B7F27 /* CartManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		5458C4C12C9BCAFF007B7F27 /* LoadingIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorManager.swift; sourceTree = "<group>"; };
 		5458C4C32C9C1528007B7F27 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
 		5458C4C72CA27385007B7F27 /* StarRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
+		5458C4CA2CA3E039007B7F27 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5458C4B32C982A26007B7F27 /* NetworkManager.swift */,
+				5458C4CA2CA3E039007B7F27 /* CartManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5458C4B42C982A26007B7F27 /* NetworkManager.swift in Sources */,
+				5458C4CB2CA3E039007B7F27 /* CartManager.swift in Sources */,
 				5458C4A82C980A6B007B7F27 /* MemberViewController.swift in Sources */,
 				5458C4B22C982926007B7F27 /* CategoryElement.swift in Sources */,
 				5458C4C82CA27385007B7F27 /* StarRateView.swift in Sources */,

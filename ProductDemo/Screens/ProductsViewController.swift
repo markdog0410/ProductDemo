@@ -83,17 +83,19 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
         return 200
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductsCell.reuserId, for: indexPath) as? ProductsCell else {
             return ProductsCell()
         }
         cell.configure(with: self.products[indexPath.row])
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Select => \(indexPath.row)")
     }
+ 
     
 }
